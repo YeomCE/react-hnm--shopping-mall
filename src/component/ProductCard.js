@@ -22,6 +22,7 @@ const ProductCard = ({item, setProductHover}) => {
             onMouseEnter={()=>{productEnterEvent()}}
             onMouseLeave={()=>{productLeaveEvent()}}
             src = {`${item?.hover ? item.imgHover : item.img}`}
+            alt=''
              />
         {item?.choice === true ? <div className='choice'>Conscious choice</div> : ''}
         <div>{item?.title}</div>

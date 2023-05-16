@@ -25,7 +25,7 @@ const Navbar = ({authenticate, setAuthenticate}) => {
                 <div onClick={goToLogin}>{authenticate?'로그아웃':'로그인'}</div>
             </div>
             <div className='logo' onClick={()=>{navigate('/')}}>
-                <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/H%26M-Logo.svg/2560px-H%26M-Logo.svg.png' />
+                <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/H%26M-Logo.svg/2560px-H%26M-Logo.svg.png'  alt=''/>
             </div>
             <div className='menu-area'>
                 <ul className='menu-list'>

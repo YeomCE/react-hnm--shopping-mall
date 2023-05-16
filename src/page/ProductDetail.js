@@ -15,13 +15,14 @@ const ProductDetail = () => {
   }
   useEffect(() => {
     getProductDetail();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
 
   return (
     <div>
       <div className='detail-box'>
-        <img src={ProductDetail?.imgHover} />
+        <img src={ProductDetail?.imgHover} alt=''/>
         <div className='product-info'>
           <div className='detail-title'>{ProductDetail?.title}</div>          
           <div className='new'>New</div>

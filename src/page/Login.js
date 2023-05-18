@@ -1,15 +1,16 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
 
-const Login = ({setAuthenticate}) => {
+const Login = ({setAuthenticate, setLoading}) => {
 
   const navigate = useNavigate()
 
   const loginUser=(e)=>{
     e.preventDefault();
+    setLoading(true)
     setAuthenticate(true);
     navigate("/")
-
+    setLoading(false)
   }
 
   return (

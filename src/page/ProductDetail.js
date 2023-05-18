@@ -32,7 +32,7 @@ const ProductDetail = () => {
             <option disabled selected>size</option>
             {ProductDetail?.size.length > 0 &&
               ProductDetail.size.map((item) => {
-                return <option>{item}</option>
+                return <option key={item}>{item}</option>
               })}
           </select>
           <button>추가</button>

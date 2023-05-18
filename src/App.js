@@ -4,7 +4,7 @@ import ProductAll from './page/ProductAll';
 import Login from './page/Login';
 import Navbar from './component/Navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import PrivateRoute from './route/PrivateRoute';
 
 // 1. 전체 상품 페이지 / 로그인 페이지 / 상품 상세페이지
@@ -19,16 +19,19 @@ import PrivateRoute from './route/PrivateRoute';
 function App() {
 
   const [authenticate, setAuthenticate] = useState(false);
-  useEffect(()=>{
-    console.log(authenticate)
-  },[authenticate])
+  const [searchValue, setSearchValue] = useState('')
+  const [loading, setLoading] = useState(false)
+  const [searchValueEnter, setSearchValueEnter] = useState('')
+
+
+
 
   return (
     <div>
-      <Navbar authenticate={authenticate} setAuthenticate={setAuthenticate}/>
+      <Navbar authenticate={authenticate} setAuthenticate={setAuthenticate} searchValue={searchValue} setSearchValue={setSearchValue} setSearchValueEnter={setSearchValueEnter}/>
       <Routes>
-        <Route path='/' element={<ProductAll />} />
-        <Route path='/login' element={<Login setAuthenticate={setAuthenticate}/>} />
+        <Route path='/' element={<ProductAll searchValue={searchValue} setSearchValue={setSearchValue} loading={loading} setLoading={setLoading} searchValueEnter={searchValueEnter}/>} />
+        <Route path='/login' element={<Login setAuthenticate={setAuthenticate} loading={loading} setLoading={setLoading}/>} />
         <Route path='/product/:id' element={<PrivateRoute authenticate={authenticate} />} />
       </Routes>
     </div>

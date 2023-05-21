@@ -20,7 +20,7 @@ const ProductAll = ({ searchValueEnter, setSearchValue, loading, setLoading, set
   const getProducts = async () => {
     setLoading(true)
     let searchQuery = query.get('q') || ''
-    let url = `http://localhost:5000/products?q=${searchQuery}`
+    let url = `https://my-json-server.typicode.com/YeomCE/react-hnm-shopping-mall/products?q=${searchQuery}`
     let response = await fetch(url)
     let data = await response.json()
     setProductList(data)

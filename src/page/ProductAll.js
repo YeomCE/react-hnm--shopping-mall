@@ -9,7 +9,7 @@ const ProductAll = ({ searchValueEnter, setSearchValue, loading, setLoading, set
 
   const [productHover, setProductHover] = useState(false);
   const [productList, setProductList] = useState([]);
-  const [query, setQuery] = useSearchParams();
+  const [query, setQuery] = useSearchParams();//eslint-disable-line no-unused-vars
 
   const override = {
     display: "flex",
@@ -29,6 +29,7 @@ const ProductAll = ({ searchValueEnter, setSearchValue, loading, setLoading, set
 
   useEffect(() => {
     getProducts();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [query])
 
   return (

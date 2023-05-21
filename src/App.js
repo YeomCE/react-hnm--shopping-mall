@@ -22,17 +22,22 @@ function App() {
   const [searchValue, setSearchValue] = useState('')
   const [loading, setLoading] = useState(false)
   const [searchValueEnter, setSearchValueEnter] = useState('')
+  const [toggleButton, setToggleButton] = useState(false)
 
 
-
+  const clickBody =()=>{
+    if(toggleButton){  
+      setToggleButton(false)
+    }
+  }
 
   return (
-    <div>
-      <Navbar authenticate={authenticate} setAuthenticate={setAuthenticate} searchValue={searchValue} setSearchValue={setSearchValue} setSearchValueEnter={setSearchValueEnter}/>
+    <div onClick={clickBody}>
+      <Navbar authenticate={authenticate} setAuthenticate={setAuthenticate} searchValue={searchValue} setSearchValue={setSearchValue} setSearchValueEnter={setSearchValueEnter} toggleButton={toggleButton} setToggleButton={setToggleButton} />
       <Routes>
-        <Route path='/' element={<ProductAll searchValue={searchValue} setSearchValue={setSearchValue} loading={loading} setLoading={setLoading} searchValueEnter={searchValueEnter}/>} />
-        <Route path='/login' element={<Login setAuthenticate={setAuthenticate} loading={loading} setLoading={setLoading}/>} />
-        <Route path='/product/:id' element={<PrivateRoute authenticate={authenticate} />} />
+        <Route path='/' element={<ProductAll searchValue={searchValue} setSearchValue={setSearchValue} loading={loading} setLoading={setLoading} searchValueEnter={searchValueEnter} setToggleButton={setToggleButton}/>} />
+        <Route path='/login' element={<Login setAuthenticate={setAuthenticate} loading={loading} setLoading={setLoading} toggleButton={toggleButton} setToggleButton={setToggleButton}/>} />
+        <Route path='/product/:id' element={<PrivateRoute authenticate={authenticate} toggleButton={toggleButton} setToggleButton={setToggleButton} />} />
       </Routes>
     </div>
   );

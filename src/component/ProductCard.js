@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
-const ProductCard = ({item, setProductHover, setSearchValue}) => {
+const ProductCard = ({item, setProductHover, setSearchValue, setToggleButton}) => {
     const navigate = useNavigate();
 
     const productEnterEvent=()=>{
@@ -14,6 +14,7 @@ const ProductCard = ({item, setProductHover, setSearchValue}) => {
     }
     const showDetail = ()=>{
       navigate(`/product/${item.id}`)
+      setToggleButton(false)
       setSearchValue('')
     }
 

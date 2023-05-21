@@ -5,7 +5,7 @@ import { Col, Container, Row } from 'react-bootstrap';
 import { useSearchParams } from 'react-router-dom';
 import { ClipLoader } from "react-spinners";
 
-const ProductAll = ({ searchValueEnter, setSearchValue, loading, setLoading }) => {
+const ProductAll = ({ searchValueEnter, setSearchValue, loading, setLoading, setToggleButton }) => {
 
   const [productHover, setProductHover] = useState(false);
   const [productList, setProductList] = useState([]);
@@ -41,7 +41,7 @@ const ProductAll = ({ searchValueEnter, setSearchValue, loading, setLoading }) =
           <Row>
             {productList.map((menu) => (
               <Col lg={3}>
-                <ProductCard key={menu} item={menu} setProductHover={setProductHover} productHover={productHover} setSearchValue={setSearchValue} />
+                <ProductCard key={menu} item={menu} setProductHover={setProductHover} productHover={productHover} setSearchValue={setSearchValue} setToggleButton={setToggleButton}/>
               </Col>
             ))}
           </Row>
